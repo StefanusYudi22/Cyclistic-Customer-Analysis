@@ -1190,7 +1190,7 @@ data_daytime_sum <- data_start_clean %>%
   group_by(member_casual, day, started_hour) %>% 
   summarise(count_riders=n()/52)
 data_daytime_sum$id <- day_number(data_daytime_sum$day)
-data_daytime_sum <- transform(data_daytime_sum, id = as.character(id))
+data_daytime_sum <- trasform(data_daytime_sum, id = as.character(id))
 ```
 
 ```{r trend of riders per day per started time}
@@ -1230,12 +1230,12 @@ ggplot(data=filter(data_daytime_sum, member_casual=="casual"),
 we could see that cyclistic member and casual riders has completely different trend between weekdays and weekend. Lets we separate the data into weekday data and weekend data.
 
 ```{r separate the data into weekdays and weekend data}
-weekday_data <- filter(data_daytime_sum, day %in% c("Monday","Tuesday","Wednesday","Thursday","Friday")) %>% 
-  aggregate(count_riders~member_casual+started_hour, mean)
+weekday_data <- filter(data_daytime_sum, day %in% c("Monday","Tuesday","Wednesday","Thursday","Friday"))
+weekday_data <- aggregate(count_riders~member_casual+started_hour, weekday_data, mean)
 weekday_data$label <- c("Weekday")
 
-weekend_data <- filter(data_daytime_sum, day %in% c("Saturday","Sunday")) %>% 
-  aggregate(count_riders~member_casual+started_hour, mean)
+weekend_data <- filter(data_daytime_sum, day %in% c("Saturday","Sunday")) 
+weekend_data <- aggregate(count_riders~member_casual+started_hour, weekend_data, mean)
 weekend_data$label <- c("Weekend")
 
 week_data <- rbind(weekday_data,weekend_data)
@@ -1306,7 +1306,7 @@ ggplot(data=week_data, mapping=aes(x=started_hour, y=count_riders, color=member_
         panel.grid.minor=element_blank())
 ```
 
-From this separation of weekdays and weekend, we can see that in weekdays there are still 3 peak time for cyclistic member, 8, 12, and 17 o'clock. casual riders at weekdays now has 2 obvious peak at 8 and 17 o'clock. More casual riders at weekend 12 -- 18 o'clock (afternoon) this could be a good time to promote the cyclistic member conversion program. casual riders at time 7-9, 11-13, and 16 -- 18 o'clock at weekdays could be good potential candidate to be cyclistic member.
+From this separation of weekdays and weekend, we can see that in weekdays there are still 3 peak time for cyclistic member, 8, 12, and 17 o'clock. casual riders at weekdays now has 2 obvious peak at 8 and 17 o'clock. More casual riders at weekend 12 - 18 o'clock (afternoon) this could be a good time to promote the cyclistic member conversion program. casual riders at time 7-9, 11-13, and 16 - 18 o'clock at weekdays could be good potential candidate to be cyclistic member.
 
 ### 4. Analysis data by Started time, Duration, and Distance
 
