@@ -2,7 +2,7 @@
 title: "Cyclistic Customer Analysis"
 author: "Stefanus Yudi Irwan"
 date: "2022-08-23"
-[Linked-in](https://www.linkedin.com/in/stefanusyudi22/)
+Linkedin : "https://www.linkedin.com/in/stefanusyudi22/"
 output: html_document
 ---
 
@@ -767,6 +767,7 @@ ggplot(data=distance_data_clean, mapping=aes(x=distance, y=member_casual, fill=m
         legend.position = "none") +
   scale_fill_manual(values=c("#F9BB04","#4385F5"))
 ```
+
 ```{r calculate riders in every distance}
 # create the ggplot object
 distance_data_1 <- ggplot(data=distance_data_clean, mapping=aes(x=distance, fill=member_casual)) +
@@ -2009,11 +2010,7 @@ ggplot(data=member_prediction, mapping=aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3,
 
 so we could achieve 37,3% increase in cyclistic membership this quarter if we could convert he 3449 person from the target station in zone 1 and 2. So the new portion for cyclistic member was comprises from 27.14% new member and 72,86% old member.
 
-from this station analysis we can infer some information :
--   the activity of cyclistic members and casual riders are centered in zone 1 and 2
--   160 target station at zone 1 and 4 station at zone 2
--    cyclistic company could meet this project target increment of 25% amount of cyclistic member through conversion of 3449 casual riders person where them usually use the target station 1 and 2 for commuting purpose.
--   The percentage of new cyclistic member after this project finished is forecasted to be 27.14% of new cyclistic member, and 72.86% the rest is old cyclistic member
+from this station analysis we can infer some information : - the activity of cyclistic members and casual riders are centered in zone 1 and 2 - 160 target station at zone 1 and 4 station at zone 2 - cyclistic company could meet this project target increment of 25% amount of cyclistic member through conversion of 3449 casual riders person where them usually use the target station 1 and 2 for commuting purpose. - The percentage of new cyclistic member after this project finished is forecasted to be 27.14% of new cyclistic member, and 72.86% the rest is old cyclistic member
 
 # D. Data Analysis Summary
 
@@ -2026,10 +2023,3 @@ After finishing duration, distance, time, rideable type, and station analysis we
 -   Never target casual riders with docked bike, just target casual riders who use electric bike or classic bike. The most popular bike among the cyclistic member is classic bike, then it is very recommended to target casual riders who used classic bike first before targeting casual riders who used electric bike.
 
 -   If the company want to look at the duration and distance data, I'll suggest to target the casual riders who use the bike with duration 0-20 minutes and distance 200-2000 first, because in this distance and duration there are a lot of casual riders that behave like cyclistic member. Then the second target is the group with duration 0-20 minutes and distance 2000-9000 m, the last target is from the group with duration 20-120 minutes and distance 2000-9000 m. The rest of the group of duration and distance also can be tried to, but there wont be significant change in the increment because the number is relatively small compared to already mentioned group of duration and distance.
-
----
-The Analysis was end : 07/10/2022
-By : Stefanus Yudi Irwan
-title: "Cyclistic Customer Analysis"
-[Linked-in](https://www.linkedin.com/in/stefanusyudi22/)
----
